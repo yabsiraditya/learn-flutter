@@ -11,21 +11,18 @@ class MyApp extends StatelessWidget {
           title: Text("Latihan Row dan Column"),
           backgroundColor: Colors.lime,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("Text 1"),
-            Text("Text 2"),
-            Text("Text 3"),
-            Row(
-              children: <Widget>[
-                Text("Text 4"),
-                Text("Text 5"),
-                Text("Text 6")
-              ],
-            )
-          ],
+        body: Container(
+          color: Colors.red,
+          margin: EdgeInsets.fromLTRB(10, 15, 20, 25),
+          padding: EdgeInsets.only(bottom: 20, top: 20),
+          child: Container(
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    colors: <Color>[Colors.green, Colors.amber])),
+          ),
         ),
       ),
     );
