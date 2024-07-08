@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() => runApp(MyApp());
 
@@ -10,34 +11,51 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String message = "Ini Adalah Text";
+  List<Widget> widgets = [];
 
-  void tekanTombol() {
-    setState(() {
-      message = "Tombol Udah ditekan";
-    });
-  }
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Latihan Text Style"),
+          title: Text("Latihan List View"),
           backgroundColor: Colors.lime,
         ),
-        body: Center(
-          child: Text(
-            "Ini Adalah Text",
-            style: TextStyle(
-                fontFamily: "Poppins",
-                fontStyle: FontStyle.italic,
-                fontSize: 30,
-                decoration: TextDecoration.lineThrough,
-                decorationColor: Colors.red,
-                decorationThickness: 2,
-                decorationStyle: TextDecorationStyle.wavy),
-          ),
+        body: ListView(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      widgets.add(Text(
+                        "Data Ke-" + counter.toString(),
+                        style: TextStyle(fontSize: 30),
+                      ));
+                      counter++;
+                    });
+                  },
+                  child: Text("Tambah Data"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      widgets.removeLast();
+                      counter--;
+                    });
+                  },
+                  child: Text("Hapus Data"),
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: widgets,
+            ),
+          ],
         ),
       ),
     );
