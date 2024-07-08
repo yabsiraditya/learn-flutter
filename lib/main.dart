@@ -10,18 +10,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0;
+  String message = "Ini Adalah Text";
 
-// Tombol Tambah
-  void tombolTambah() {
+  void tekanTombol() {
     setState(() {
-      number = number + 1;
-    });
-  }
-
-  void tombolKurang() {
-    setState(() {
-      number = number - 1;
+      message = "Tombol Udah ditekan";
     });
   }
 
@@ -30,21 +23,21 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Stateful Widget Demo"),
+          title: Text("Anonymouse Method"),
           backgroundColor: Colors.lime,
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                number.toString(),
-                style: TextStyle(fontSize: 10 + number.toDouble()),
-              ),
+              Text(message),
               ElevatedButton(
-                  onPressed: tombolTambah, child: Text("Tambah Bilangan")),
-              ElevatedButton(
-                  onPressed: tombolKurang, child: Text("Kurang Bilangan"))
+                  onPressed: () {
+                    setState(() {
+                      message = "Tombol sudah ditekan";
+                    });
+                  },
+                  child: Text("Tekan Saya"))
             ],
           ),
         ),
