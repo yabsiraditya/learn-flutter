@@ -23,22 +23,20 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Anonymouse Method"),
+          title: Text("Latihan Text Style"),
           backgroundColor: Colors.lime,
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(message),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      message = "Tombol sudah ditekan";
-                    });
-                  },
-                  child: Text("Tekan Saya"))
-            ],
+          child: Text(
+            "Ini Adalah Text",
+            style: TextStyle(
+                fontFamily: "Poppins",
+                fontStyle: FontStyle.italic,
+                fontSize: 30,
+                decoration: TextDecoration.lineThrough,
+                decorationColor: Colors.red,
+                decorationThickness: 2,
+                decorationStyle: TextDecorationStyle.wavy),
           ),
         ),
       ),
