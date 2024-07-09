@@ -11,51 +11,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> widgets = [];
-
-  int counter = 1;
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Latihan List View"),
+          title: Text("Latihan Animated Container"),
           backgroundColor: Colors.lime,
         ),
-        body: ListView(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      widgets.add(Text(
-                        "Data Ke-" + counter.toString(),
-                        style: TextStyle(fontSize: 30),
-                      ));
-                      counter++;
-                    });
-                  },
-                  child: Text("Tambah Data"),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      widgets.removeLast();
-                      counter--;
-                    });
-                  },
-                  child: Text("Hapus Data"),
-                ),
-              ],
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {});
+            },
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1),
+              width: 50.0 + random.nextInt(101),
+              height: 50.0 + random.nextInt(101),
+              color: Color.fromARGB(255, random.nextInt(256),
+                  random.nextInt(256), random.nextInt(256)),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: widgets,
-            ),
-          ],
+          ),
         ),
       ),
     );
