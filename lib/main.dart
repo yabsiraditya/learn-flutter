@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 void main() => runApp(MyApp());
 
@@ -15,51 +14,128 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Text("Flexible Layout"),
-            backgroundColor: Colors.lime,
-          ),
-          body: Column(
-            children: [
-              Flexible(
-                flex: 1,
-                child: Row(
+        appBar: AppBar(
+          title: Text("Latihan Stack dan Align"),
+          backgroundColor: Colors.lime,
+        ),
+        body: Stack(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: Row(
+                    children: <Widget>[
+                      Flexible(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.black12,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Row(
+                    children: <Widget>[
+                      Flexible(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.black12,
+                        ),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            ListView(
+              children: <Widget>[
+                Column(
                   children: <Widget>[
-                    Flexible(
-                        flex: 1,
-                        child: Container(
-                          margin: EdgeInsets.fromLTRB(15, 10, 5, 5),
-                          color: Colors.yellow,
-                        )),
-                    Flexible(
-                        flex: 1,
-                        child: Container(
-                          margin: EdgeInsets.fromLTRB(5, 10, 5, 5),
-                          color: Colors.purple,
-                        )),
-                    Flexible(
-                        flex: 1,
-                        child: Container(
-                          margin: EdgeInsets.fromLTRB(5, 10, 15, 5),
-                          color: Colors.green,
-                        )),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        "Ini adalah text yang ada ditengah dari Stack",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        "Ini adalah text yang ada ditengah dari Stack",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        "Ini adalah text yang ada ditengah dari Stack",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        "Ini adalah text yang ada ditengah dari Stack",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        "Ini adalah text yang ada ditengah dari Stack",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        "Ini adalah text yang ada ditengah dari Stack",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text(
+                        "Ini adalah text yang ada ditengah dari Stack",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
                   ],
+                )
+              ],
+            ),
+            Align(
+              alignment: Alignment(0.95, 0.95),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("+"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  textStyle: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              Flexible(
-                  flex: 2,
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(15, 5, 15, 5),
-                    color: Colors.red,
-                  )),
-              Flexible(
-                  flex: 1,
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(15, 5, 15, 10),
-                    color: Colors.blue,
-                  )),
-            ],
-          )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
