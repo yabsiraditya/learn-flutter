@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+// ignore: must_be_immutable
 class ColorFullButton extends StatefulWidget {
   Color mainColor, secondColor;
   IconData iconData;
