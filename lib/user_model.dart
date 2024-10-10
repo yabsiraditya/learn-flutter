@@ -14,13 +14,18 @@ class User {
     );
   }
 
-  static Future<User> connectToAPI(String id) async {
-    var apiURL = Uri.parse("https://reqres.in/api/users/" + id);
+  static Future<List<User>> getUsers(String page) async {
+    var apiURL = Uri.parse("https://reqres.in/api/users?page=" + page);
 
     var apiResult = await http.get(apiURL);
     var jsonObject = json.decode(apiResult.body);
-    var userData = (jsonObject as Map<String, dynamic>)['data'];
 
-    return User.createUser(userData);
+    List<dynamic> listUser = (jsonObject as Map<String, dynamic>)['data'];
+
+    List<User> users = [];
+    for (var i = 0; i < listUser.length; i++)
+      users.add(User.createUser(listUser[i]));
+
+    return users;
   }
 }
