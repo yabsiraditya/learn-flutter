@@ -10,6 +10,7 @@ class MethodPost extends StatefulWidget {
 class _MethodPostState extends State<MethodPost> {
   PostResult? postResult;
   User? user;
+  String output = "no data";
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +23,14 @@ class _MethodPostState extends State<MethodPost> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(
-              (user != null) ? "${user!.id} | ${user!.name}" : "Tidak Ada Data",
-            ),
+            Text(output),
             ElevatedButton(
               onPressed: () {
-                User.connectToAPI("5").then((value) {
-                  user = value;
+                User.getUsers("2").then((users) {
+                  output = "";
+                  for (var i = 0; i < users.length; i++)
+                    output = output + "[ " + users[i].name + " ] ";
                   setState(() {});
-                  print("Get Result: $user");
-                }).catchError((error) {
-                  print("Error: $error");
                 });
               },
               child: Text("GET"),
