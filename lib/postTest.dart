@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/post_result_model.dart';
+import 'package:learn_flutter/user_model.dart';
 
 class MethodPost extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class MethodPost extends StatefulWidget {
 
 class _MethodPostState extends State<MethodPost> {
   PostResult? postResult;
+  User? user;
 
   @override
   Widget build(BuildContext context) {
@@ -21,24 +23,19 @@ class _MethodPostState extends State<MethodPost> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              (postResult != null)
-                  ? "${postResult!.id} | ${postResult!.name} | ${postResult!.job} | ${postResult!.created}"
-                  : "Tidak Ada Data",
+              (user != null) ? "${user!.id} | ${user!.name}" : "Tidak Ada Data",
             ),
             ElevatedButton(
               onPressed: () {
-                // Call the API and wrap the assignment in setState
-                PostResult.connectToAPI("yabsir", "Gatau").then((value) {
-                  setState(() {
-                    postResult = value;
-                  });
-                  // Debugging: print result to console
-                  print("Post Result: $postResult");
+                User.connectToAPI("5").then((value) {
+                  user = value;
+                  setState(() {});
+                  print("Get Result: $user");
                 }).catchError((error) {
                   print("Error: $error");
                 });
               },
-              child: Text("Post"),
+              child: Text("GET"),
             ),
           ],
         ),
