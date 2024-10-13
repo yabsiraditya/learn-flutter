@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/animatedPadding.dart';
+import 'package:learn_flutter/multiProvider.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnimasiPad(),
+      home: MultiProviderMain(),
     );
   }
 }
